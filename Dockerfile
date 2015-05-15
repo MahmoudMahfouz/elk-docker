@@ -54,9 +54,9 @@ RUN sed -i -e 's#^KIBANA_HOME=$#KIBANA_HOME='$KIBANA_HOME'#' /etc/init.d/kibana4
 ###############################################################################
 
 ### configure and start elasticsearch
-
+RUN rm /opt/kibana/config/kibana.yml
 ADD ./elasticsearch.yml /etc/elasticsearch/elasticsearch.yml
-
+ADD ./kibana.yml /opt/kibana/config/kibana.yml
 
 ### configure and start logstash
 
